@@ -795,7 +795,7 @@ acsip_ret_t mac_get_ch_count_acsip (char *rep_buf, uint16_t len_max) {
 
 acsip_ret_t mac_set_keys_acsip(char *devaddr, char *deveui, char *appeui, char *appkey, char *appskey, char *nwkskey) {
 	char tmp_buf[128];
-	sprintf(tmp_buf, "mac set_claa %s %s %s %s %s %s", devaddr, deveui, appeui, appkey, appskey, nwkskey);
+	sprintf(tmp_buf, "mac set_keys %s %s %s %s %s %s", devaddr, deveui, appeui, appkey, appskey, nwkskey);
 	transfer_acsip(tmp_buf, "Ok", 1000, 0);
 	return get_return_code();
 }
@@ -933,8 +933,93 @@ acsip_ret_t rf_get_pwr_acsip (char *rep_buf, uint16_t len_max) {
 	return get_acsip("rf get_pwr", NULL, rep_buf, len_max, 1000);
 }
 
+acsip_ret_t rf_get_sf_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rf get_sf", NULL, rep_buf, len_max, 1000);
+}
 
+acsip_ret_t rf_get_bw_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rf get_bw", NULL, rep_buf, len_max, 1000);
+}
 
+acsip_ret_t rf_get_prlen_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rf get_prlen", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rf_get_crc_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rf get_crc", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rf_get_iqi_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rf get_iqi", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rf_get_cr_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rf get_cr", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rf_get_sync_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rf get_sync", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rf_rx_con_acsip(uint8_t on){
+	char snd_buf[128];
+	sprintf(snd_buf, "rf rx_con %s", on ? "on": "off");
+	transfer_acsip(snd_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rf_fsk_acsip(uint8_t on){
+	char snd_buf[128];
+	sprintf(snd_buf, "rf fsk %s", on ? "on": "off");
+	transfer_acsip(snd_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rf_lora_tx_start_acsip(int32_t times, int32_t interval, char *data) {
+	char tmp_buf[128];
+	sprintf(tmp_buf, "rf lora_tx_start %lu %lu %s", times, interval, data);
+	transfer_acsip(tmp_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rf_lora_tx_stop_acsip(void) {
+	transfer_acsip("rf lora_tx_stop", "Ok", 5000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rf_lora_rx_stop_acsip(void) {
+	transfer_acsip("rf lora_rx_stop", "Ok", 5000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rf_set_fdev_acsip(int16_t freqdeviation) {
+	char tmp_buf[128];
+	sprintf(tmp_buf, "rf set_fdev %lu", freqdeviation);
+	transfer_acsip(tmp_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rf_get_fdev_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rf get_fdev", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rf_set_cad_acsip(uint8_t on){
+	char snd_buf[128];
+	sprintf(snd_buf, "rf set_cad %s", on ? "on": "off");
+	transfer_acsip(snd_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rf_get_cad_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rf get_cad", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rf_cad_acsip(int32_t frequency, uint8_t sf, uint16_t bw, uint8_t syncword, uint8_t skiprx) {
+	char tmp_buf[128];
+	sprintf(tmp_buf, "rf cad %lu %u %lu %u %u", frequency, sf, bw, syncword, skiprx);
+	transfer_acsip(tmp_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
 
 
 // ************ GPS commands ************
