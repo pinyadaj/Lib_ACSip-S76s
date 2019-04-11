@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdtprojectproperties>
+<section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.IncludePaths">
+<language name="C Source File">
+<includepath>../Application/Main/Inc</includepath>
+<includepath>../Application/BSP/inc</includepath>
+<includepath>../Driver/Peripheral/inc</includepath>
+<includepath>../Driver/Camera/LS-Y201</includepath>
+<includepath>../Application/AppTranstack/inc</includepath>
+<includepath>../Application/AppCamera/inc</includepath>
+<includepath>../Application/AppTimeBase/inc</includepath>
+<includepath>../Application/AppSDCard/inc</includepath>
+<includepath>../STM32L4-Lib/Drivers/STM32L4xx_HAL_Driver/Inc</includepath>
+<includepath>../STM32L4-Lib/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy</includepath>
+<includepath>../Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F</includepath>
+<includepath>../Middlewares/Third_Party/FreeRTOS/include</includepath>
+<includepath>../Middlewares/Third_Party/FatFs/ff12b/src</includepath>
+<includepath>../Middlewares/Third_Party/FatFs</includepath>
+<includepath>../STM32L4-Lib/Drivers/CMSIS/Include</includepath>
+<includepath>../STM32L4-Lib/Drivers/CMSIS/Device/ST/STM32L4xx/Include</includepath>
+<includepath>../Middlewares/Third_Party/Transtack</includepath>
+<includepath>../Middlewares/Third_Party/Transtack/lib/crc</includepath>
+<includepath>../Middlewares/Third_Party/Transtack/lib/moving_avg</includepath>
+<includepath>../Middlewares/Third_Party/Transtack/lib/transtack</includepath>
+<includepath>../Middlewares/Third_Party/Transtack/queue</includepath>
+<includepath>../Middlewares/Third_Party/Camera/LS-Y201</includepath>
+
+</language>
+<language name="S">
+<includepath>../Application/Main/Inc</includepath>
+<includepath>../Application/BSP/inc</includepath>
+<includepath>../Driver/Peripheral/inc</includepath>
+<includepath>../Driver/Camera/LS-Y201</includepath>
+<includepath>../Application/AppTranstack/inc</includepath>
+<includepath>../Application/AppCamera/inc</includepath>
+<includepath>../Application/AppTimeBase/inc</includepath>
+<includepath>../Application/AppSDCard/inc</includepath>
+<includepath>../STM32L4-Lib/Drivers/STM32L4xx_HAL_Driver/Inc</includepath>
+<includepath>../STM32L4-Lib/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy</includepath>
+<includepath>../Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F</includepath>
+<includepath>../Middlewares/Third_Party/FreeRTOS/include</includepath>
+<includepath>../Middlewares/Third_Party/FatFs/ff12b/src</includepath>
+<includepath>../Middlewares/Third_Party/FatFs</includepath>
+<includepath>../STM32L4-Lib/Drivers/CMSIS/Include</includepath>
+<includepath>../STM32L4-Lib/Drivers/CMSIS/Device/ST/STM32L4xx/Include</includepath>
+<includepath>../Middlewares/Third_Party/Transtack</includepath>
+<includepath>../Middlewares/Third_Party/Transtack/lib/crc</includepath>
+<includepath>../Middlewares/Third_Party/Transtack/lib/moving_avg</includepath>
+<includepath>../Middlewares/Third_Party/Transtack/lib/transtack</includepath>
+<includepath>../Middlewares/Third_Party/Transtack/queue</includepath>
+<includepath>../Middlewares/Third_Party/Camera/LS-Y201</includepath>
+
+</language>
+<language name="Object File">
+
+</language>
+<language name="Assembly Source File">
+<includepath>../Application/Main/Inc</includepath>
+<includepath>../Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F</includepath>
+
+</language>
+<language name="s">
+<includepath>../Application/Main/Inc</includepath>
+<includepath>../Middlewares/Third_Party/FreeRTOS/portable/GCC/ARM_CM4F</includepath>
+
+</language>
+</section>
+<section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.Macros">
+<language name="C Source File">
+<macro>
+<name>STM32L4</name><value/>
+</macro>
+<macro>
+<name>STM32L476RGTx</name><value/>
+</macro>
+<macro>
+<name>STM32</name><value/>
+</macro>
+<macro>
+<name>DEBUG</name><value/>
+</macro>
+<macro>
+<name>STM32L476xx</name><value/>
+</macro>
+<macro>
+<name>USE_HAL_DRIVER</name><value/>
+</macro>
+<macro>
+<name>STM32F4XX</name><value/>
+</macro>
+
+</language>
+<language name="S">
+<macro>
+<name>STM32L4</name><value/>
+</macro>
+<macro>
+<name>STM32L476RGTx</name><value/>
+</macro>
+<macro>
+<name>STM32</name><value/>
+</macro>
+<macro>
+<name>DEBUG</name><value/>
+</macro>
+<macro>
+<name>STM32L476xx</name><value/>
+</macro>
+<macro>
+<name>USE_HAL_DRIVER</name><value/>
+</macro>
+<macro>
+<name>STM32F4XX</name><value/>
+</macro>
+
+</language>
+<language name="Object File">
+
+</language>
+<language name="Assembly Source File">
+
+</language>
+<language name="s">
+
+</language>
+</section>
+</cdtprojectproperties>
