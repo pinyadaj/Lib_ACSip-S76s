@@ -1022,6 +1022,96 @@ acsip_ret_t rf_cad_acsip(int32_t frequency, uint8_t sf, uint16_t bw, uint8_t syn
 }
 
 
+
+// ************ RM commands ************
+
+acsip_ret_t rm_set_gpio_acsip(char *dir, uint8_t serial_num, char *pin_group, uint8_t pin_name) {
+	char tmp_buf[128];
+	sprintf(tmp_buf, "rm set_gpio %s %u %s %u", dir, serial_num, pin_group, pin_name);
+	transfer_acsip(tmp_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rm_get_gpio_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rm get_gpio", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rm_set_gpio_swtich_acsip(uint8_t on){
+	char snd_buf[128];
+	sprintf(snd_buf, "rm set_gpio_swtich %s", on ? "on": "off");
+	transfer_acsip(snd_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rm_get_gpio_swtich_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rm get_gpio_swtich", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rm_set_adc_acsip(uint8_t serial_num, uint8_t on){
+	char snd_buf[128];
+	sprintf(snd_buf, "rm set_adc %u %s", serial_num, on ? "on": "off");
+	transfer_acsip(snd_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rm_get_adc_acsip (uint8_t serial_num, char *rep_buf, uint16_t len_max) {
+	char snd_buf[128];
+	sprintf(snd_buf, "rm get_adc %u", serial_num);
+	return get_acsip(snd_buf, NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rm_set_adc_switch_acsip(uint8_t on){
+	char snd_buf[128];
+	sprintf(snd_buf, "rm set_adc_switch %s", on ? "on": "off");
+	transfer_acsip(snd_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rm_get_adc_switch_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rm get_adc_switch", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rm_set_port_uplink_acsip(uint8_t port) {
+	char tmp_buf[128];
+	sprintf(tmp_buf, "rm set_port_uplink %u", port);
+	transfer_acsip(tmp_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rm_set_port_downlink_acsip(uint8_t port) {
+	char tmp_buf[128];
+	sprintf(tmp_buf, "rm set_port_downlink %u", port);
+	transfer_acsip(tmp_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rm_get_port_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rm get_port", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rm_set_mode_acsip(char *mode) {
+	char tmp_buf[128];
+	sprintf(tmp_buf, "rm set_mode %s", mode);
+	transfer_acsip(tmp_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rm_get_mode_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rm get_mode", NULL, rep_buf, len_max, 1000);
+}
+
+acsip_ret_t rm_set_trigger_acsip(char *pin_group, uint8_t pin_num, char *trig_type) {
+	char tmp_buf[128];
+	sprintf(tmp_buf, "rm set_trigger %s %u %s", pin_group, pin_num, trig_type);
+	transfer_acsip(tmp_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t rm_get_trigger_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rm get_trigger", NULL, rep_buf, len_max, 1000);
+}
+
+
 // ************ GPS commands ************
 
 acsip_ret_t gps_set_level_shift_acsip(int8_t on) {
@@ -1032,9 +1122,12 @@ acsip_ret_t gps_set_level_shift_acsip(int8_t on) {
 }
 
 acsip_ret_t gps_set_nmea_rmc_acsip(void) {
-	transfer_acsip(" gps set_nmea rmc", "Ok", 1000, 0);
+	char tmp_buf[128];
+	sprintf(tmp_buf, "gps set_nmea rmc");
+	transfer_acsip(tmp_buf, "Ok", 1000, 0);
 	return get_return_code();
 }
+
 
 acsip_ret_t gps_set_port_uplink_acsip(char *port) {
 	char tmp_buf[128];
@@ -1073,6 +1166,27 @@ acsip_ret_t gps_get_data_acsip (char *req_buf, char *rep_buf, uint16_t len_max) 
 	sprintf(tmp_buf, "gps get_data %s", req_buf);
 	return get_acsip(tmp_buf, NULL, rep_buf, len_max, 1000);
 }
+
+acsip_ret_t gps_sleep_acsip(int8_t on, int8_t sleep_lev) {
+	char snd_buf[128];
+	sprintf(snd_buf, "gps sleep %s %u", on ? "on": "off", sleep_lev);
+	transfer_acsip(snd_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+acsip_ret_t gps_get_ttff_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("gps get_ttff", NULL, rep_buf, len_max, 1000);
+}
+
+
+acsip_ret_t gps_reset_acsip(void) {
+	char tmp_buf[128];
+	sprintf(tmp_buf, "gps reset");
+	transfer_acsip(tmp_buf, "Ok", 1000, 0);
+	return get_return_code();
+}
+
+
 
 //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 //*
