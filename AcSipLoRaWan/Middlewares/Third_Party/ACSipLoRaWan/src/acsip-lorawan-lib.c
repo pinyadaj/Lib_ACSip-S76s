@@ -1085,15 +1085,15 @@ acsip_ret_t rm_get_gpio_acsip (char *rep_buf, uint16_t len_max) {
 	return get_acsip("rm get_gpio", NULL, rep_buf, len_max, 1000);
 }
 
-acsip_ret_t rm_set_gpio_swtich_acsip(uint8_t on){
+acsip_ret_t rm_set_gpio_switch_acsip(uint8_t on){
 	char snd_buf[128];
-	sprintf(snd_buf, "rm set_gpio_swtich %s", on ? "on": "off");
+	sprintf(snd_buf, "rm set_gpio_switch %s", on ? "on": "off");
 	transfer_acsip(snd_buf, "Ok", 1000, 0);
 	return get_return_code();
 }
 
-acsip_ret_t rm_get_gpio_swtich_acsip (char *rep_buf, uint16_t len_max) {
-	return get_acsip("rm get_gpio_swtich", NULL, rep_buf, len_max, 1000);
+acsip_ret_t rm_get_gpio_switch_acsip (char *rep_buf, uint16_t len_max) {
+	return get_acsip("rm get_gpio_switch", NULL, rep_buf, len_max, 1000);
 }
 
 acsip_ret_t rm_set_adc_acsip(uint8_t serial_num, uint8_t on){
